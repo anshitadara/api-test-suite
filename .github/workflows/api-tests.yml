@@ -19,3 +19,11 @@ jobs:
 
       - name: Run Tests
         run: pytest
+      - name: Run API Tests
+        run: pytest --html=report.html --self-contained-html
+
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v3
+        with:
+         name: test-report
+         path: report.html
